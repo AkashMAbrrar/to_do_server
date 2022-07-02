@@ -13,14 +13,17 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 // imoport rotes
-const TodoItemRoute = require('../server/routes/toDoItems');
+// const TodoItemRoute = require('../server/routes/toDoItems');
 
 // Mongodb database connection
 mongoose.connect(`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.pttgv.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => console.log('Database connected with mongoose'))
     .catch(err => console.log(err))
 
-app.use('/', TodoItemRoute);
+// app.use('/', TodoItemRoute);
+app.get('/', (req, res) => {
+    res.send('this is test api')
+})
 
 
 
